@@ -1,23 +1,5 @@
 package com.BootcampProject;
 
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.InputStream;
-import java.io.StringWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
-
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -25,10 +7,25 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
+
 public class StepsMonthly {
 
 	ArrayList<Date> dateListMonthly = new ArrayList<Date>();
 	List<Integer> stepsListMonthly = new ArrayList<Integer>();
+
+	String accessToken = "ya29.GltMB-EyF9g9FAMRiMKGAQjkqQ2AG8nDfrFvVm12THlpTzuuPkkJidb_BU81n_lo32zujyYnSpQbzjGxawB043xS1SCHTPJp9X9FNa_GAMguNrmaTFrFrtrABJn3";
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
@@ -44,11 +41,7 @@ public class StepsMonthly {
 		HttpPost httppost = new HttpPost("https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate");
 		httppost.addHeader("Content-Type", "application/json");
 		httppost.addHeader("Authorization",
-<<<<<<< HEAD
-				"Bearer ya29.GltJB-bIkYhRhOvLUZ17cZUdKJoFmMrsuZVU59WnDmDaKSaW2wKojCwewWn4muPcTH0CcHz0MAAnSZ1xH5k2JiuzQh5wJL8zV95DZ8bWr0ArfDPrqkqTZ91IXEWU");
-=======
-				"Bearer ya29.GltDBzCZQBvwmLkFlpgEvfYOrGwx7lswJTZMoN05sFg_uPYC7YBbn_tMuKQ_G8Wse4NydzgUOohlkhqHy0VpQSmX809Jmu5ZvLMJN1pmlgCLMLAtSRncAjsOTAoM");
->>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
+				"Bearer " + accessToken);
 		httppost.setEntity(new StringEntity(" {\r\n" + "  \"aggregateBy\": [{\r\n" + "    \"dataSourceId\":\r\n"
 				+ "      \"derived:com.google.step_count.delta:com.google.android.gms:estimated_steps\"\r\n"
 				+ "  }],\r\n" + "  \"bucketByTime\": { \"durationMillis\": 86400000 },\r\n" + "  \"startTimeMillis\": "
@@ -67,7 +60,8 @@ public class StepsMonthly {
 
 			}
 			FileWriter fw = new FileWriter(
-					"C:\\Users\\satpal kumar\\Downloads\\BootcampProject-master\\src\\main\\resources\\json\\jsonMonthly.json");
+					//"C:\\Users\\satpal kumar\\Downloads\\BootcampProject-master\\src\\main\\resources\\json\\jsonMonthly.json");
+					"jsonMonthly.json");
 			fw.write(result);
 			System.out.println("Written json result to file");
 			fw.close();
@@ -79,7 +73,7 @@ public class StepsMonthly {
 	public void getMonthlyStepCount() throws Exception {
 
 		InputStream file = new FileInputStream(
-				"C:\\Users\\satpal kumar\\Downloads\\BootcampProject-master\\src\\main\\resources\\json\\jsonMonthly.json");
+				"jsonMonthly.json");
 		JsonReader reader = Json.createReader(file);
 		JsonObject jsonObj = reader.readObject();
 		reader.close();
@@ -104,11 +98,7 @@ public class StepsMonthly {
 
 					for (Object issueObj2 : jsonArrayvalue.toArray()) {
 						JsonObject valueObj = (JsonObject) issueObj2;
-<<<<<<< HEAD
 						System.out.println(date + " --> Steps Count is: " + valueObj.getInt("intVal"));
-=======
-						//System.out.println(date + " --> Steps Count is: " + valueObj.getInt("intVal"));
->>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
 						// Retrieved data and inserting into the database
 						dateListMonthly.add(date);
 						int x = valueObj.getInt("intVal");

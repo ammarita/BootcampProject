@@ -29,19 +29,11 @@ public class Controller {
     @GetMapping("/getTokens")
     public String redirect() {
         String redirectUrl = "https://accounts.google.com/o/oauth2/v2/auth?client_id=424969099056-3evvb3dehl985orl16u96pna1q212l9r.apps.googleusercontent.com&response_type=code&scope=https://www.googleapis.com/auth/fitness.activity.read&redirect_uri=http://localhost:8080/Chart&access_type=offline";
-<<<<<<< HEAD
         //String redirectUrl = "https://localhost:8080/DailyStepsChart";
         return "redirect:" + redirectUrl;
     }
 
-    /*@GetMapping("/Chart")
-=======
-        return "redirect:" + redirectUrl;
-    }
-
     @GetMapping("/Chart")
->>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
-    //@ResponseBody
     public String stepchart(@RequestParam String code, Model model) throws IOException {
         GoogleTokenResponse tokenResponse =
                 new GoogleAuthorizationCodeTokenRequest(
@@ -59,190 +51,155 @@ public class Controller {
         model.addAttribute("labels", Arrays.asList(results).stream().map(u -> u.getDate()).collect(Collectors.toList()));
 
         return "Chart";
-        // return graph(results);
-<<<<<<< HEAD
-    } //end of stepchart  */
-
-    @RequestMapping(value = {"/Chart"})
-    @ResponseBody
-    public String getDailyStepsChart() throws Exception {
-
-        StepsToday stepsToday = new StepsToday();
-        stepsToday.getData();
-        String str = str1+str2;
-        for (int i = 0; i < stepsToday.dateListDaily.size();i++){
-            str = str + "['" + stepsToday.dateListDaily.get(i) + "'" + ", " + stepsToday.stepsListDaily.get(i) + ", " + stepsToday.stepsListDaily.get(i) + "],\n";
-        }
-        str = str + "]);\r\n" +
-                "\r\n" +
-                "        var options = {\r\n" +
-                "          title: 'Daily Steps Count',\r\n" +
-                "          curveType: 'function',\r\n" +
-                "          legend: { position: 'bottom' }\r\n" +
-                "        };\r\n" +
-                "\r\n" +
-                "        var chart = new google.visualization.BarChart(document.getElementById('curve_chart'));\r\n" +
-                "\r\n" +
-                "        chart.draw(data, options);\r\n" +
-                "      }\r\n" +
-                "    </script>\r\n" +
-                "<style>"+
-                ".button {"+
-                "background-color: #1c20a3;"+
-                "border: none;"+
-                "color: white;"+
-                "padding: 10px 20px;"+
-                "text-align: center;"+
-                "font-size: 16px;"+
-                "cursor: pointer;\n}" +
-                ".button:hover {"+
-                "background-color: blue;\n}"+
-                "</style>"+
-                "  </head>\r\n" +
-                "  <body>\r\n" +
-                "    <div id=\"curve_chart\" style=\"width: 900px; height: 500px\"></div>\r\n" +
-                "<br>"+
-                "<form method=\"post\" action=\"WeeklyChart\">"+
-                "<button id=\"btnSearch\" type=\"submit\" style=\"background-color:blue;margin-right:auto\">Click Here For Weekly Step Count</button>"+
-                "</form>"+
-                "<br>"+
-                "<form method=\"post\" action=\"MonthlyChart\">"+
-                "<button id=\"btnSearch\" type=\"submit\" style=\"background-color:blue;margin-right:auto\">Click Here For Monthly Step Count</button>"+
-                "</form>"+
-                "  </body>\r\n" +
-                "</html>";
-
-        return str;
-    } //end of getWeeklyGraph
-=======
-    } //end of stepchart
->>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
-
-    @RequestMapping(value = {"/WeeklyChart"})
-    @ResponseBody
-    public String getWeeklyGraph() throws Exception {
-
-        StepsWeekly reqWeeklyData = new StepsWeekly();
-        reqWeeklyData.getWeeklyStepCount();
-        String str = str1+str2;
-        for (int i = 0; i < reqWeeklyData.stepsListWeekly.size(); i++) {
-            str = str + "['" + reqWeeklyData.dateListWeekly.get(i) + "'" + ", " + reqWeeklyData.stepsListWeekly.get(i) + ", " + reqWeeklyData.stepsListWeekly.get(i) + "],\n";
-        }
-<<<<<<< HEAD
-        str = str + str3 +str4+str5;
-
-        return str;
-    } //end of getWeeklyGraph
-=======
-        str = str + str3;
-
-        return str;
-    }
->>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
-
-    @RequestMapping(value = {"/MonthlyChart"})
-    @ResponseBody
-    public String getMonthlyGraph() throws Exception {
-
-        StepsMonthly reqMonthlyData = new StepsMonthly();
-        reqMonthlyData.getMonthlyStepCount();
-<<<<<<< HEAD
-        String str = str1+str6;
-        for (int i = 0; i < reqMonthlyData.stepsListMonthly.size(); i++) {
-            str = str + "['" + reqMonthlyData.dateListMonthly.get(i) + "'" + ", " + reqMonthlyData.stepsListMonthly.get(i)+ "],\n";
-        }
-        str = str +str3 +str7+str5 ;
-=======
-        String str = str1+str4;
-        for (int i = 0; i < reqMonthlyData.stepsListMonthly.size(); i++) {
-            str = str + "['" + reqMonthlyData.dateListMonthly.get(i) + "'" + ", " + reqMonthlyData.stepsListMonthly.get(i)+ "],\n";
-        }
-        str = str +str3 ;
->>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
-        return str;
     }
 
-        public String graph(DailySteps[] results) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < results.length; i++) {
-            sb.append(results[i].getDate());
-            sb.append(" ");
-            sb.append(results[i].getSteps() + "<br/>");
-        }
-        return sb.toString();
-    }
 
-<<<<<<< HEAD
-=======
-    @GetMapping("/logout")
-    public String logout() {
-        return "logout";
-    }
 
->>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
-    String str1="<!DOCTYPE html>\n"
-            + "<html>\r\n" +
-            "  <head>\r\n" +
-            "<style>"+
-            "body {\r\n" +
-            "-webkit-animation: colorchange 60s infinite;"+
-            "animation: colorchange 60s infinite;"+
-            "}"+
-            "@-webkit-keyframes colorchange {"+
-            "0%  {background: #33FFF3;}"+
-            "25%  {background: #78281F;}"+
-            "50%  {background: #117A65;}"+
-            "75%  {background: #DC7633;}"+
-            "100% {background: #9B59B6;}"+
-            "}"+
-            "@keyframes colorchange {"+
-            "0%  {background: #33FFF3;}"+
-            "25%  {background: #78281F;}"+
-            "50%  {background: #117A65;}"+
-            "75%  {background: #DC7633;}"+
-            "100% {background: #9B59B6;}"+
-            "}"+
-
-            "</style>"+
-            "    <script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>\r\n" +
-            "    <script type=\"text/javascript\">\r\n" +
-            "      google.charts.load('current', {'packages':['corechart']});\r\n" +
-            "      google.charts.setOnLoadCallback(drawChart);\r\n" +
-            "\r\n" +
-            "      function drawChart() {\r\n" +
-            "        var data = google.visualization.arrayToDataTable([\n";
-    String str2="['Date', 'Steps', {type: 'number', role: 'annotation'}],\n";
-    String str3="]);\r\n" +
-            "\r\n" +
-<<<<<<< HEAD
-            "        var options = {\r\n" ;
-    String str4=
-            "          title: 'Weekly Steps Count',\r\n" ;
-    String str5=
-=======
-            "        var options = {\r\n" +
-            "          title: 'Weekly Steps Count',\r\n" +
->>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
-            "          curveType: 'function',\r\n" +
-            "          legend: { position: 'bottom' }\r\n" +
-            "        };\r\n" +
-            "\r\n" +
-            "        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));\r\n" +
-            "\r\n" +
-            "        chart.draw(data, options);\r\n" +
-            "      }\r\n" +
-            "    </script>\r\n" +
-            "  </head>\r\n" +
-            "  <body>\r\n" +
-            "    <div id=\"curve_chart\" style=\"width: 900px; height: 500px\"></div>\r\n" +
-            "  </body>\r\n" +
-            "</html>";
-<<<<<<< HEAD
-    String str6="['Date', 'Steps'],\n";
-    String str7=
-            "          title: 'Monthly Steps Count',\r\n" ;
-=======
-    String str4="['Date', 'Steps'],\n";
->>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
+//    @RequestMapping(value = {"/Chart"})
+//    @ResponseBody
+//    public String getDailyStepsChart() throws Exception {
+//
+//        StepsToday stepsToday = new StepsToday();
+//        stepsToday.getData();
+//        String str = str1+str2;
+//        for (int i = 0; i < stepsToday.dateListDaily.size();i++){
+//            str = str + "['" + stepsToday.dateListDaily.get(i) + "'" + ", " + stepsToday.stepsListDaily.get(i) + ", " + stepsToday.stepsListDaily.get(i) + "],\n";
+//        }
+//        str = str + "]);\r\n" +
+//                "\r\n" +
+//                "        var options = {\r\n" +
+//                "          title: 'Daily Steps Count',\r\n" +
+//                "          curveType: 'function',\r\n" +
+//                "          legend: { position: 'bottom' }\r\n" +
+//                "        };\r\n" +
+//                "\r\n" +
+//                "        var chart = new google.visualization.BarChart(document.getElementById('curve_chart'));\r\n" +
+//                "\r\n" +
+//                "        chart.draw(data, options);\r\n" +
+//                "      }\r\n" +
+//                "    </script>\r\n" +
+//                "<style>"+
+//                ".button {"+
+//                "background-color: #1c20a3;"+
+//                "border: none;"+
+//                "color: white;"+
+//                "padding: 10px 20px;"+
+//                "text-align: center;"+
+//                "font-size: 16px;"+
+//                "cursor: pointer;\n}" +
+//                ".button:hover {"+
+//                "background-color: blue;\n}"+
+//                "</style>"+
+//                "  </head>\r\n" +
+//                "  <body>\r\n" +
+//                "    <div id=\"curve_chart\" style=\"width: 900px; height: 500px\"></div>\r\n" +
+//                "<br>"+
+//                "<form method=\"post\" action=\"WeeklyChart\">"+
+//                "<button id=\"btnSearch\" type=\"submit\" style=\"background-color:blue;margin-right:auto\">Click Here For Weekly Step Count</button>"+
+//                "</form>"+
+//                "<br>"+
+//                "<form method=\"post\" action=\"MonthlyChart\">"+
+//                "<button id=\"btnSearch\" type=\"submit\" style=\"background-color:blue;margin-right:auto\">Click Here For Monthly Step Count</button>"+
+//                "</form>"+
+//                "  </body>\r\n" +
+//                "</html>";
+//
+//        return str;
+//    } //end of getWeeklyGraph
+//
+//    @RequestMapping(value = {"/WeeklyChart"})
+//    @ResponseBody
+//    public String getWeeklyGraph() throws Exception {
+//
+//        StepsWeekly reqWeeklyData = new StepsWeekly();
+//        reqWeeklyData.getWeeklyStepCount();
+//        String str = str1+str2;
+//        for (int i = 0; i < reqWeeklyData.stepsListWeekly.size(); i++) {
+//            str = str + "['" + reqWeeklyData.dateListWeekly.get(i) + "'" + ", " + reqWeeklyData.stepsListWeekly.get(i) + ", " + reqWeeklyData.stepsListWeekly.get(i) + "],\n";
+//        }
+//        str = str + str3 +str4+str5;
+//
+//        return str;
+//    } //end of getWeeklyGraph
+//
+//    @RequestMapping(value = {"/MonthlyChart"})
+//    @ResponseBody
+//    public String getMonthlyGraph() throws Exception {
+//
+//        StepsMonthly reqMonthlyData = new StepsMonthly();
+//        reqMonthlyData.getMonthlyStepCount();
+//        String str = str1+str6;
+//        for (int i = 0; i < reqMonthlyData.stepsListMonthly.size(); i++) {
+//            str = str + "['" + reqMonthlyData.dateListMonthly.get(i) + "'" + ", " + reqMonthlyData.stepsListMonthly.get(i)+ "],\n";
+//        }
+//        str = str +str3 +str7+str5 ;
+//        return str;
+//    }
+//
+//        public String graph(DailySteps[] results) {
+//        StringBuilder sb = new StringBuilder();
+//        for (int i = 0; i < results.length; i++) {
+//            sb.append(results[i].getDate());
+//            sb.append(" ");
+//            sb.append(results[i].getSteps() + "<br/>");
+//        }
+//        return sb.toString();
+//    }
+//
+//    String str1="<!DOCTYPE html>\n"
+//            + "<html>\r\n" +
+//            "  <head>\r\n" +
+//            "<style>"+
+//            "body {\r\n" +
+//            "-webkit-animation: colorchange 60s infinite;"+
+//            "animation: colorchange 60s infinite;"+
+//            "}"+
+//            "@-webkit-keyframes colorchange {"+
+//            "0%  {background: #33FFF3;}"+
+//            "25%  {background: #78281F;}"+
+//            "50%  {background: #117A65;}"+
+//            "75%  {background: #DC7633;}"+
+//            "100% {background: #9B59B6;}"+
+//            "}"+
+//            "@keyframes colorchange {"+
+//            "0%  {background: #33FFF3;}"+
+//            "25%  {background: #78281F;}"+
+//            "50%  {background: #117A65;}"+
+//            "75%  {background: #DC7633;}"+
+//            "100% {background: #9B59B6;}"+
+//            "}"+
+//
+//            "</style>"+
+//            "    <script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>\r\n" +
+//            "    <script type=\"text/javascript\">\r\n" +
+//            "      google.charts.load('current', {'packages':['corechart']});\r\n" +
+//            "      google.charts.setOnLoadCallback(drawChart);\r\n" +
+//            "\r\n" +
+//            "      function drawChart() {\r\n" +
+//            "        var data = google.visualization.arrayToDataTable([\n";
+//    String str2="['Date', 'Steps', {type: 'number', role: 'annotation'}],\n";
+//    String str3="]);\r\n" +
+//            "\r\n" +
+//            "        var options = {\r\n" ;
+//    String str4=
+//            "          title: 'Weekly Steps Count',\r\n" ;
+//    String str5=
+//            "          curveType: 'function',\r\n" +
+//            "          legend: { position: 'bottom' }\r\n" +
+//            "        };\r\n" +
+//            "\r\n" +
+//            "        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));\r\n" +
+//            "\r\n" +
+//            "        chart.draw(data, options);\r\n" +
+//            "      }\r\n" +
+//            "    </script>\r\n" +
+//            "  </head>\r\n" +
+//            "  <body>\r\n" +
+//            "    <div id=\"curve_chart\" style=\"width: 900px; height: 500px\"></div>\r\n" +
+//            "  </body>\r\n" +
+//            "</html>";
+//    String str6="['Date', 'Steps'],\n";
+//    String str7=
+//            "          title: 'Monthly Steps Count',\r\n" ;
 
 }

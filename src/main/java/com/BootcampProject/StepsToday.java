@@ -1,23 +1,5 @@
 package com.BootcampProject;
 
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.InputStream;
-import java.io.StringWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
-
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -25,16 +7,22 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.StringWriter;
+import java.util.*;
+
 public class StepsToday {
 
-<<<<<<< HEAD:src/main/java/com/BootcampProject/StepsToday.java
 	ArrayList<Date> dateListDaily = new ArrayList<Date>();
 	List<Integer> stepsListDaily = new ArrayList<Integer>();
-=======
-	ArrayList<Date> dateListWeekly = new ArrayList<Date>();
-	List<Integer> stepsListWeekly = new ArrayList<Integer>();
->>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba:src/main/java/com/BootcampProject/StepsToday.java
-	
+	String accessToken = "ya29.GltMB-EyF9g9FAMRiMKGAQjkqQ2AG8nDfrFvVm12THlpTzuuPkkJidb_BU81n_lo32zujyYnSpQbzjGxawB043xS1SCHTPJp9X9FNa_GAMguNrmaTFrFrtrABJn3";
+
 	public static void main(String[] args) throws Exception {
 		StepsToday steps=new StepsToday();
 		steps.getJsonFromHttpRequest();
@@ -47,29 +35,19 @@ public class StepsToday {
 		HttpPost httppost = new HttpPost("https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate");
 		httppost.addHeader("Content-Type", "application/json");
 		httppost.addHeader("Authorization",
-<<<<<<< HEAD:src/main/java/com/BootcampProject/StepsToday.java
-				"Bearer ya29.GltJB-bIkYhRhOvLUZ17cZUdKJoFmMrsuZVU59WnDmDaKSaW2wKojCwewWn4muPcTH0CcHz0MAAnSZ1xH5k2JiuzQh5wJL8zV95DZ8bWr0ArfDPrqkqTZ91IXEWU");
-		
+				"Bearer " + accessToken);
+
 		// GET Today's date
 		long DAY_IN_MS = 1000 * 60 * 60 * 24;
-=======
-				"Bearer ya29.GltDB4WDeemys3l9_maMMVH65Sdsc1wbUW5nGSYUout4Vm9L9-RCVwsRKXUnXANMLiGHO3QzUrlZr9jj61jpJa8PGZ5LxmE-VTSeXnTe1Svr940fyNPFaQOgTcbS");
-		
-		// GET Today's date
->>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba:src/main/java/com/BootcampProject/StepsToday.java
 		Calendar endcal = Calendar.getInstance();
 		endcal.set(Calendar.HOUR, 0);
 		endcal.set(Calendar.MINUTE, 0);
 		endcal.set(Calendar.SECOND, 0);
 		// System.out.println("Format Time Now: "+simpleformat.format(now.getTime()));
 		endcal.set(Calendar.HOUR_OF_DAY, 0);
-<<<<<<< HEAD:src/main/java/com/BootcampProject/StepsToday.java
 		long todayMidNightTime = endcal.getTimeInMillis();
 		Date startdate = new Date(todayMidNightTime - (1 * DAY_IN_MS));
 		long starttime = startdate.getTime();
-=======
-		long starttime = endcal.getTimeInMillis();
->>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba:src/main/java/com/BootcampProject/StepsToday.java
 		long endtime = System.currentTimeMillis();
 		System.out.println("Start time : "+starttime);
 		System.out.println("End time : "+endtime);
@@ -94,7 +72,7 @@ public class StepsToday {
 			}
 			System.out.println(result);
 			FileWriter fw = new FileWriter(
-					"C:\\Users\\satpal kumar\\eclipse-workspace\\BootcampProject\\src\\main\\resources\\json\\jsonToday.json");
+					"jsonToday.json");
 			fw.write(result);
 			System.out.println("Written json result to file");
 			fw.close();
@@ -106,7 +84,7 @@ public class StepsToday {
 	public void getData() throws Exception {
 
 			InputStream file = new FileInputStream(
-					"C:\\Users\\satpal kumar\\eclipse-workspace\\BootcampProject\\src\\main\\resources\\json\\jsonToday.json");
+					"jsonToday.json");
 			JsonReader reader = Json.createReader(file);
 			JsonObject jsonObj = reader.readObject();
 			reader.close();
@@ -128,24 +106,19 @@ public class StepsToday {
 
 					for (Object issueObj1 : jsonArraypoint.toArray()) {
 						JsonObject pointObj = (JsonObject) issueObj1;
-						
+
 						JsonArray jsonArrayvalue = (JsonArray) pointObj.get("value");
-						
+
 						for (Object issueObj2 : jsonArrayvalue.toArray()) {
 							JsonObject valueObj = (JsonObject) issueObj2;
 							System.out.println(date + " --> Steps Count is: " + valueObj.getInt("intVal"));
 							// Retrieved data and inserting into the List (dateList and Steps List)
-<<<<<<< HEAD:src/main/java/com/BootcampProject/StepsToday.java
 							dateListDaily.add(date);
 							stepsListDaily.add(valueObj.getInt("intVal"));
-=======
-							dateListWeekly.add(date);
-							stepsListWeekly.add(valueObj.getInt("intVal"));
->>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba:src/main/java/com/BootcampProject/StepsToday.java
 						}
 					}
 				}
 			}
 		}  //end of method getData()
-	
+
 } //end of class

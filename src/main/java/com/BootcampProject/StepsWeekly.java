@@ -1,17 +1,5 @@
 package com.BootcampProject;
 
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.InputStream;
-import java.io.StringWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -19,10 +7,16 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.springframework.stereotype.Controller;
+
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.StringWriter;
+import java.util.*;
 
 @Controller
 public class StepsWeekly {
@@ -35,6 +29,7 @@ public class StepsWeekly {
 	// https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate
 	ArrayList<Date> dateListWeekly = new ArrayList<Date>();
 	List<Integer> stepsListWeekly = new ArrayList<Integer>();
+	String accessToken = "ya29.GltMB-EyF9g9FAMRiMKGAQjkqQ2AG8nDfrFvVm12THlpTzuuPkkJidb_BU81n_lo32zujyYnSpQbzjGxawB043xS1SCHTPJp9X9FNa_GAMguNrmaTFrFrtrABJn3";
 
 	public static void main(String[] args) throws Exception {
 		StepsWeekly weeklySteps = new StepsWeekly();
@@ -50,11 +45,7 @@ public class StepsWeekly {
 		HttpPost httppost = new HttpPost("https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate");
 		httppost.addHeader("Content-Type", "application/json");
 		httppost.addHeader("Authorization",
-<<<<<<< HEAD
-				"Bearer ya29.GltJB-bIkYhRhOvLUZ17cZUdKJoFmMrsuZVU59WnDmDaKSaW2wKojCwewWn4muPcTH0CcHz0MAAnSZ1xH5k2JiuzQh5wJL8zV95DZ8bWr0ArfDPrqkqTZ91IXEWU");
-=======
-				"Bearer ya29.GltDBzCZQBvwmLkFlpgEvfYOrGwx7lswJTZMoN05sFg_uPYC7YBbn_tMuKQ_G8Wse4NydzgUOohlkhqHy0VpQSmX809Jmu5ZvLMJN1pmlgCLMLAtSRncAjsOTAoM");
->>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
+				"Bearer " + accessToken);
 		// GET Today's date
 
 		long DAY_IN_MS = 1000 * 60 * 60 * 24;
@@ -88,7 +79,7 @@ public class StepsWeekly {
 
 			}
 			FileWriter fw = new FileWriter(
-					"C:\\Users\\satpal kumar\\Downloads\\BootcampProject-master\\src\\main\\resources\\json\\jsonWeekly.json");
+					"jsonWeekly.json");
 			fw.write(result);
 			System.out.println("Written json result to file");
 			fw.close();
@@ -100,7 +91,7 @@ public class StepsWeekly {
 	public void getWeeklyStepCount() throws Exception {
 
 		InputStream file = new FileInputStream(
-				"C:\\Users\\satpal kumar\\Downloads\\BootcampProject-master\\src\\main\\resources\\json\\jsonWeekly.json");
+				"jsonWeekly.json");
 		JsonReader reader = Json.createReader(file);
 		JsonObject jsonObj = reader.readObject();
 		reader.close();
