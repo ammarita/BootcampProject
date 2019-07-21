@@ -20,25 +20,25 @@
         </div>
 <script th:inline="javascript">
 function renderChart(data, labels) {
-var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-type: 'line',
-data: {
-labels: labels,
-datasets: [{
-label: 'Weekly Step Chart',
-data: data,
-}]
-},
-});
+	var ctx = document.getElementById("myChart").getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: labels,
+			datasets: [{
+				label: 'Weekly Step Chart',
+				data: data,
+			}]
+		},
+	});
 }
 //$("#renderBtn").click(
 window.onload = function () {
- data = /*[[${steps}]]*/ [100,900];
- //[20000, 14000, 12000, 15000, 18000, 19000, 22000];
-labels = /*[[${labels}]]*/ ['',''];
-//["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-renderChart(data, labels);
+		data = /*[[${steps}]]*/ [100, 900];
+		//[20000, 14000, 12000, 15000, 18000, 19000, 22000];
+		labels = /*[[${labels}]]*/ ['', ''];
+		//["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+		renderChart(data, labels);
 };
 </script>
 

@@ -1,9 +1,6 @@
 package com.BootcampProject;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class Database {
     File file = new File("resources/steps.txt");
