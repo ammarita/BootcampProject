@@ -10,14 +10,13 @@
         <link rel="stylesheet" type="text/css" href="css/chart.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="./Chart.js"></script>
     </head>
     <body>
         <div class="container">
             <canvas id="myChart"></canvas>
         </div>
         <div class="btn">
-            <a href="#" th:href="@{/logout}">Log Out</a>
+            <a href="#" th:href="@{/logout}">Logout</a>
         </div>
 <script th:inline="javascript">
 function renderChart(data, labels) {
