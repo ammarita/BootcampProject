@@ -15,5 +15,3 @@ $getJSON('http://localhost:8080/api/charts/default'function(json_data){
     contentType:"application/json",
     dataType: 'json'
     });
-
-});

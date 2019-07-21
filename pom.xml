@@ -101,6 +101,9 @@
 			<artifactId>google-oauth-client-jetty</artifactId>
 			<version>1.11.0-beta</version>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
 		</dependency>
         <dependency>
             <groupId>javax.json</groupId>
@@ -128,6 +131,8 @@
 		</dependency>
 
 
+<<<<<<< HEAD
+=======
 =======
 		</dependency>
         <dependency>
@@ -136,6 +141,7 @@
             <version>1.0</version>
         </dependency>
 >>>>>>> 55d9c3c764bab79ef8411b88be59f7dbb0147519
+>>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
     </dependencies>
 
 	<build>

@@ -29,10 +29,18 @@ public class Controller {
     @GetMapping("/getTokens")
     public String redirect() {
         String redirectUrl = "https://accounts.google.com/o/oauth2/v2/auth?client_id=424969099056-3evvb3dehl985orl16u96pna1q212l9r.apps.googleusercontent.com&response_type=code&scope=https://www.googleapis.com/auth/fitness.activity.read&redirect_uri=http://localhost:8080/Chart&access_type=offline";
+<<<<<<< HEAD
+        //String redirectUrl = "https://localhost:8080/DailyStepsChart";
+        return "redirect:" + redirectUrl;
+    }
+
+    /*@GetMapping("/Chart")
+=======
         return "redirect:" + redirectUrl;
     }
 
     @GetMapping("/Chart")
+>>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
     //@ResponseBody
     public String stepchart(@RequestParam String code, Model model) throws IOException {
         GoogleTokenResponse tokenResponse =
@@ -52,7 +60,63 @@ public class Controller {
 
         return "Chart";
         // return graph(results);
+<<<<<<< HEAD
+    } //end of stepchart  */
+
+    @RequestMapping(value = {"/Chart"})
+    @ResponseBody
+    public String getDailyStepsChart() throws Exception {
+
+        StepsToday stepsToday = new StepsToday();
+        stepsToday.getData();
+        String str = str1+str2;
+        for (int i = 0; i < stepsToday.dateListDaily.size();i++){
+            str = str + "['" + stepsToday.dateListDaily.get(i) + "'" + ", " + stepsToday.stepsListDaily.get(i) + ", " + stepsToday.stepsListDaily.get(i) + "],\n";
+        }
+        str = str + "]);\r\n" +
+                "\r\n" +
+                "        var options = {\r\n" +
+                "          title: 'Daily Steps Count',\r\n" +
+                "          curveType: 'function',\r\n" +
+                "          legend: { position: 'bottom' }\r\n" +
+                "        };\r\n" +
+                "\r\n" +
+                "        var chart = new google.visualization.BarChart(document.getElementById('curve_chart'));\r\n" +
+                "\r\n" +
+                "        chart.draw(data, options);\r\n" +
+                "      }\r\n" +
+                "    </script>\r\n" +
+                "<style>"+
+                ".button {"+
+                "background-color: #1c20a3;"+
+                "border: none;"+
+                "color: white;"+
+                "padding: 10px 20px;"+
+                "text-align: center;"+
+                "font-size: 16px;"+
+                "cursor: pointer;\n}" +
+                ".button:hover {"+
+                "background-color: blue;\n}"+
+                "</style>"+
+                "  </head>\r\n" +
+                "  <body>\r\n" +
+                "    <div id=\"curve_chart\" style=\"width: 900px; height: 500px\"></div>\r\n" +
+                "<br>"+
+                "<form method=\"post\" action=\"WeeklyChart\">"+
+                "<button id=\"btnSearch\" type=\"submit\" style=\"background-color:blue;margin-right:auto\">Click Here For Weekly Step Count</button>"+
+                "</form>"+
+                "<br>"+
+                "<form method=\"post\" action=\"MonthlyChart\">"+
+                "<button id=\"btnSearch\" type=\"submit\" style=\"background-color:blue;margin-right:auto\">Click Here For Monthly Step Count</button>"+
+                "</form>"+
+                "  </body>\r\n" +
+                "</html>";
+
+        return str;
+    } //end of getWeeklyGraph
+=======
     } //end of stepchart
+>>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
 
     @RequestMapping(value = {"/WeeklyChart"})
     @ResponseBody
@@ -64,10 +128,17 @@ public class Controller {
         for (int i = 0; i < reqWeeklyData.stepsListWeekly.size(); i++) {
             str = str + "['" + reqWeeklyData.dateListWeekly.get(i) + "'" + ", " + reqWeeklyData.stepsListWeekly.get(i) + ", " + reqWeeklyData.stepsListWeekly.get(i) + "],\n";
         }
+<<<<<<< HEAD
+        str = str + str3 +str4+str5;
+
+        return str;
+    } //end of getWeeklyGraph
+=======
         str = str + str3;
 
         return str;
     }
+>>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
 
     @RequestMapping(value = {"/MonthlyChart"})
     @ResponseBody
@@ -75,11 +146,19 @@ public class Controller {
 
         StepsMonthly reqMonthlyData = new StepsMonthly();
         reqMonthlyData.getMonthlyStepCount();
+<<<<<<< HEAD
+        String str = str1+str6;
+        for (int i = 0; i < reqMonthlyData.stepsListMonthly.size(); i++) {
+            str = str + "['" + reqMonthlyData.dateListMonthly.get(i) + "'" + ", " + reqMonthlyData.stepsListMonthly.get(i)+ "],\n";
+        }
+        str = str +str3 +str7+str5 ;
+=======
         String str = str1+str4;
         for (int i = 0; i < reqMonthlyData.stepsListMonthly.size(); i++) {
             str = str + "['" + reqMonthlyData.dateListMonthly.get(i) + "'" + ", " + reqMonthlyData.stepsListMonthly.get(i)+ "],\n";
         }
         str = str +str3 ;
+>>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
         return str;
     }
 
@@ -93,11 +172,14 @@ public class Controller {
         return sb.toString();
     }
 
+<<<<<<< HEAD
+=======
     @GetMapping("/logout")
     public String logout() {
         return "logout";
     }
 
+>>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
     String str1="<!DOCTYPE html>\n"
             + "<html>\r\n" +
             "  <head>\r\n" +
@@ -132,8 +214,15 @@ public class Controller {
     String str2="['Date', 'Steps', {type: 'number', role: 'annotation'}],\n";
     String str3="]);\r\n" +
             "\r\n" +
+<<<<<<< HEAD
+            "        var options = {\r\n" ;
+    String str4=
+            "          title: 'Weekly Steps Count',\r\n" ;
+    String str5=
+=======
             "        var options = {\r\n" +
             "          title: 'Weekly Steps Count',\r\n" +
+>>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
             "          curveType: 'function',\r\n" +
             "          legend: { position: 'bottom' }\r\n" +
             "        };\r\n" +
@@ -148,6 +237,12 @@ public class Controller {
             "    <div id=\"curve_chart\" style=\"width: 900px; height: 500px\"></div>\r\n" +
             "  </body>\r\n" +
             "</html>";
+<<<<<<< HEAD
+    String str6="['Date', 'Steps'],\n";
+    String str7=
+            "          title: 'Monthly Steps Count',\r\n" ;
+=======
     String str4="['Date', 'Steps'],\n";
+>>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
 
 }

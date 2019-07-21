@@ -1,6 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
+<<<<<<< HEAD
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./myChart.js"></script>
+
+
+
+
+    <title>Exploring Chart.js</title>
+
+
+
+
+
+
+
+</head>
+<style>
+    .container {
+        width: 50%;
+        height: 50%;
+    }
+</style>
+<body>
+
+
+<div class="container">
+    <canvas id="myChart"></canvas>
+</div>
+
+
+
+
+
+
+=======
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +59,7 @@
         <div class="btn">
             <a href="#" th:href="@{/logout}">Logout</a>
         </div>
+>>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
 <script th:inline="javascript">
 function renderChart(data, labels) {
 var ctx = document.getElementById("myChart").getContext('2d');
@@ -26,7 +68,11 @@ type: 'line',
 data: {
 labels: labels,
 datasets: [{
+<<<<<<< HEAD
+label: 'This week',
+=======
 label: 'Weekly Step Chart',
+>>>>>>> 727ad8b94e61a0f3c43548c076fc25559a0645ba
 data: data,
 }]
 },
