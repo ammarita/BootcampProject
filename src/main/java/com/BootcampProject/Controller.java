@@ -53,6 +53,11 @@ public class Controller {
         return "Chart";
     }
 
+    @GetMapping("/logout")
+    public String logout() {
+        return "logout";
+    }
+
 
 
 //    @RequestMapping(value = {"/Chart"})
