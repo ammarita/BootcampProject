@@ -12,193 +12,192 @@
     </head>
     <style>
         body {
-          margin: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        .container {
-            width: 50%;
-            height: 50%;
-        }
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+	width: 50%;
+	height: 50%;
+}
 
-        .img {
-        position: absolute;
-        top: 7%;
-        left: 8%;
-        }
-        .btn {
-            margin: 0;
-            position: absolute;
-            top: 65%;
-            left: 41%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            display: inline-block;
-            text-align: center;
-            vertical-align: middle;
-            padding: 12px 21px;
-            border: 3px solid #dbdbdb;
-            border-radius: 10px;
-            position: absolute;
-            top: 75% left: 45% width: 100%;
-            min-width: 10px;
-            max-width: 300px;
-            transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            background-color: #F2F4F4;
-            font: bold 14px helvetica;
-            color: #F4997A;
-            cursor: pointer;
-            transition: all 0.5s;
-            margin: 5px;
-        }
+.img {
+position: absolute;
+top: 7%;
+left: 8%;
+}
+.btn {
+	margin: 0;
+	position: absolute;
+	top: 65%;
+	left: 41%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	padding: 12px 21px;
+	border: 3px solid #dbdbdb;
+	border-radius: 10px;
+	position: absolute;
+	top: 75% left: 45% width: 100%;
+	min-width: 10px;
+	max-width: 300px;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	background-color: #F2F4F4;
+    font: bold 16px helvetica;
+    color: #F4997A;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin: 5px;
+}
 
-        .btn span {
-          cursor: pointer;
-          display: inline-block;
-          position: relative;
-          transition: 0.5s;
-        }
+.btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
 
-        .btn span:after {
-          content: '\00bb';
-          position: absolute;
-          opacity: 0;
-          top: 0;
-          right: -20px;
-          transition: 0.5s;
-        }
+.btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
 
-        .btn:hover span {
-          padding-right: 15px;
-        }
+.btn:hover span {
+  padding-right: 15px;
+}
 
-        .btn:hover span:after {
-          opacity: 1;
-          right: 0;
-        }
+.btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 
-        .btn1 {
-            margin: 0;
-            position: absolute;
-            top: 65%;
-            left: 56%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            display: inline-block;
-            text-align: center;
-            vertical-align: middle;
-            padding: 12px 21px;
-            border: 3px solid #dbdbdb;
-            border-radius: 10px;
-            position: absolute;
-            top: 75% left: 45% width: 100%;
-            min-width: 10px;
-            max-width: 300px;
-            transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            background-color: #F2F4F4;
-            font: bold 14px helvetica;
-            color: #F4997A;
-            cursor: pointer;
-            transition: all 0.5s;
-            margin: 5px;
-        }
+.btn1 {
+	margin: 0;
+	position: absolute;
+	top: 65%;
+	left: 56%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	padding: 12px 21px;
+	border: 3px solid #dbdbdb;
+	border-radius: 10px;
+	position: absolute;
+	top: 75% left: 45% width: 100%;
+	min-width: 10px;
+	max-width: 300px;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	background-color: #F2F4F4;
+    font: bold 16px helvetica;
+    color: #F4997A;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin: 5px;
+}
 
-        .btn1 span {
-          cursor: pointer;
-          display: inline-block;
-          position: relative;
-          transition: 0.5s;
-        }
+.btn1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
 
-        .btn1 span:after {
-          content: '\00bb';
-          position: absolute;
-          opacity: 0;
-          top: 0;
-          right: -20px;
-          transition: 0.5s;
-        }
+.btn1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
 
-        .btn1:hover span {
-          padding-right: 15px;
-        }
+.btn1:hover span {
+  padding-right: 15px;
+}
 
-        .btn1:hover span:after {
-          opacity: 1;
-          right: 0;
-        }
-        .btn2 {
-            margin: 0;
-            position: absolute;
-            top: 78%;
-            left: 48%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            display: inline-block;
-            text-align: center;
-            vertical-align: middle;
-            padding: 12px 21px;
-            border: 3px solid #dbdbdb;
-            border-radius: 10px;
-            position: absolute;
-            top: 75% left: 45% width: 100%;
-            min-width: 10px;
-            max-width: 300px;
-            transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            background-color: #F2F4F4;
-            font: bold 14px helvetica;
-            color: #F4997A;
-            cursor: pointer;
-            transition: all 0.5s;
-            margin: 5px;
-        }
+.btn1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.btn2 {
+	margin: 0;
+	position: absolute;
+	top: 35%;
+	left: 12%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	padding: 10px 19px;
+	border: 3px solid #dbdbdb;
+	border-radius: 10px;
+	position: absolute;
+	top: 75% left: 45% width: 100%;
+	min-width: 10px;
+	max-width: 300px;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	background-color: #F2F4F4;
+    font: bold 12px helvetica;
+    color: #F4997A;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin: 5px;
+}
 
-        .btn2 span {
-          cursor: pointer;
-          display: inline-block;
-          position: relative;
-          transition: 0.5s;
-        }
+.btn2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
 
-        .btn2 span:after {
-          content: '\00bb';
-          position: absolute;
-          opacity: 0;
-          top: 0;
-          right: -20px;
-          transition: 0.5s;
-        }
+.btn2 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
 
-        .btn2:hover span {
-          padding-right: 15px;
-        }
+.btn2:hover span {
+  padding-right: 15px;
+}
 
-        .btn2:hover span:after {
-          opacity: 1;
-          right: 0;
-        }
-    </style>
+.btn2:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
     <body>
-        <div class="container">
-            <canvas id="myChart"></canvas>
-        </div>
-        <div class="img">
-            <img src="https://i.ibb.co/P441TTq/befitlogo-peach-no-border-Copy.png">
-        </div>
-        <div class="button">
-            <a class="btn" href="/logout"><span>Daily steps</span></a>
-        </div>
-        <div class="button">
-            <a class="btn1" href="/logout"><span>Monthly steps</span></a>
-        </div>
-        <div class="button">
-            <a class="btn2" href="/logout"><span>Logout</span></a>
-        </div>
-
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+    <div class="img">
+        <img src="https://i.ibb.co/P441TTq/befitlogo-peach-no-border-Copy.png">
+    </div>
+    <div class="button">
+        <a class="btn" href="/daily"><span>Daily steps</span></a>
+    </div>
+    <div class="button">
+        <a class="btn1" href="/monthly"><span>Monthly steps</span></a>
+    </div>
+    <div class="button">
+        <a class="btn2" href="/logout"><span>Logout</span></a>
+    </div>
         <script th:inline="javascript">
         function renderChart(data, labels) {
             var ctx = document.getElementById("myChart").getContext('2d');
