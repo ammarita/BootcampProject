@@ -13,12 +13,122 @@
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript"
             src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <style>
+        .container {
+          position: absolute;
+          width: 100%;
+          max-width: 2400px;
+        }
+        .responsive {
+          width: 100%;
+          height: auto;
+        }
+        .container img {
+          width: 100%;
+          height: auto;
+        }
+        .container .btn {
+         display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            padding: 15px 21px;
+            border: none;
+            border-radius: 4px;
+            position: absolute;
+            top: 48%;
+            left: 73%;
+            //width: 100%;
+            min-width: 10px;
+            max-width: 320px;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            background-color: #F2F4F4;
+            font: bold 16px helvetica;
+            color: #F4997A;
+            cursor: pointer;
+            transition: all 0.5s;
+            margin: 5px;
+        }
+        .btn span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s;
+        }
+
+        .btn span:after {
+          content: '\00bb';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -20px;
+          transition: 0.5s;
+        }
+
+        .btn:hover span {
+          padding-right: 15px;
+        }
+
+        .btn:hover span:after {
+          opacity: 1;
+          right: 0;
+        }
+
+        .container .aboutBtn {
+        display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            padding: 15px 21px;
+            border: none;
+            border-color: #F4F6F7;
+            border-radius: 4px;
+            position: absolute;
+            top: 56%;
+            left: 73%;
+            //width: 100%;
+            min-width: 10px;
+            max-width: 320px;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            background-color: #F2F4F4;
+            font: bold 14px helvetica;
+            color: #F4997A;
+            cursor: pointer;
+            transition: all 0.5s;
+            margin: 5px;
+        }
+
+        .aboutBtn span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s;
+        }
+
+        .aboutBtn span:after {
+          content: '\00bb';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -20px;
+          transition: 0.5s;
+        }
+
+        .aboutBtn:hover span {
+          padding-right: 15px;
+        }
+
+        .aboutBtn:hover span:after {
+          opacity: 1;
+          right: 0;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
     <img src="https://i.ibb.co/SKJJP8r/Background-Logo-on-Top.png">
-    <a class="btn" href="/getTokens">Sign in with Google</a>
+    <a class="btn" href="/getTokens"><span>Sign in with Google</span></a>
+    <button class="aboutBtn" onclick="window.open('https://i.imgur.com/ar7yaf9.png', '_blank')"><span>Read more</span></button>
 </div>
 </body>
 </html>
