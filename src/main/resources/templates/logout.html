@@ -38,85 +38,62 @@
                 height: auto;
             }
 
-            .btn {
-                margin: 0;
-                position: absolute;
-                top: 50%;
-                left: 70%;
-                -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-                display: inline-block;
-                text-align: center;
-                vertical-align: middle;
-                padding: 12px 21px;
-                border: 3px solid #dbdbdb;
-                border-radius: 10px;
-                position: absolute;
-                top: 75% left: 50% width: 100%;
-                min-width: 10px;
-                max-width: 300px;
-                transform: translate(-50%, -50%);
-                -ms-transform: translate(-50%, -50%);
-                background: #ffffff;
-                background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e6e6e6));
-                background: -moz-linear-gradient(top, #ffffff, #e6e6e6);
-                background: linear-gradient(to bottom, #ffffff, #e6e6e6);
-                -webkit-box-shadow: #ffffff 0px 0px 9px 0px;
-                -moz-box-shadow: #ffffff 0px 0px 9px 0px;
-                box-shadow: #ffffff 0px 0px 9px 0px;
-                text-shadow: #ffffff 1px 1px 1px;
-                font: normal normal bold 20px verdana;
-                color: #807878;
-                text-decoration: none;
-            }
+            .container .btn {
+         display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            padding: 15px 21px;
+            border: none;
+            border-radius: 4px;
+            position: absolute;
+            top: 30%;
+            left: 65%;
+            //width: 100%;
+            min-width: 10px;
+            max-width: 320px;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            background-color: #F2F4F4;
+            font: bold 16px helvetica;
+            color: #F4997A;
+            cursor: pointer;
+            transition: all 0.5s;
+            margin: 5px;
+        }
+        .btn span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s;
+        }
 
-            .btn:hover,
-            .btn:focus {
-                background: #ffffff;
-                background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
-                background: -moz-linear-gradient(top, #ffffff, #ffffff);
-                background: linear-gradient(to bottom, #ffffff, #ffffff);
-                color: #807878;
-                text-decoration: none;
-            }
+        .btn span:after {
+          content: '\00bb';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -20px;
+          transition: 0.5s;
+        }
 
-            .btn:active {
-                background: #b3b3b3;
-                background: -webkit-gradient(linear, left top, left bottom, from(#b3b3b3), to(#e6e6e6));
-                background: -moz-linear-gradient(top, #b3b3b3, #e6e6e6);
-                background: linear-gradient(to bottom, #b3b3b3, #e6e6e6);
-            }
+        .btn:hover span {
+          padding-right: 15px;
+        }
 
-            .btn:before {
-                content: "\0000a0";
-                display: inline-block;
-                height: 24px;
-                width: 24px;
-                line-height: 24px;
-                margin: 0 4px -6px -4px;
-                position: absolute;
-                top: 22%;
-                left: 5%;
-                background-size: 100% 100%;
-            }
+        .btn:hover span:after {
+          opacity: 1;
+          right: 0;
+        }
         </style>
     </head>
     <body>
         <div class="container" style="display:flex">
             <div class="col" style="flex:50%"></div>
             <div class="col" style="flex:50%">
-                <h1>Thank you! </h1>
-                <p>Cat ipsum dolor sit amet, chew foot flex claws on the human's belly and purr like a lawnmower. My slave human
-                    didn't give me any food so i pooped on the floor sleep nap. Trip on catnip pet my belly, you know you want to;
-                    seize the hand and shred it!. Run outside as soon as door open fall asleep upside-down lounge in doorway flee in
-                    terror at cucumber discovered on floor yet attack feet, pet right here, no not there, here, no fool, right here
-                    that other cat smells funny you should really give me all the treats because i smell the best and omg you
-                    finally got the right spot and i love you right now eat plants, meow, and throw up because i ate plants. Find
-                    empty spot in cupboard and sleep all day really likes hummus kitty scratches couch bad kitty for eat owner's
-                    food. Sleep nap slap kitten brother with paw yet why must they do that, pushes butt to face pee in human's bed
-                    until he cleans the litter box.
-                </p>
-                <a class="btn" href="/">Start Again</a>
+                <h3>Thank you for using BE(ne)FIT!</h3>
+                <p>You can check <a href="https://www.verywellfit.com/how-many-pedometer-steps-per-day-are-enough-3432827">verywellfit</a> webpage how many steps daily you should walk.</p>
+                <p>To boost your energy while walking we suggest you a <a href="https://open.spotify.com/playlist/37i9dQZF1DXdxcBWuJkbcy">Spotify</a> playlist</p>
+                <a class="btn" href="/"><span>Try Again</span></a>
             </div>
         </div>
     </body>
