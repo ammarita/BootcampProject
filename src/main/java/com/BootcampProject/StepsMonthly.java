@@ -25,7 +25,7 @@ public class StepsMonthly {
 	ArrayList<Date> dateListMonthly = new ArrayList<Date>();
 	List<Integer> stepsListMonthly = new ArrayList<Integer>();
 
-	String accessToken = "ya29.GltMB-EyF9g9FAMRiMKGAQjkqQ2AG8nDfrFvVm12THlpTzuuPkkJidb_BU81n_lo32zujyYnSpQbzjGxawB043xS1SCHTPJp9X9FNa_GAMguNrmaTFrFrtrABJn3";
+	String accessToken = "<enter here>";
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
@@ -60,7 +60,6 @@ public class StepsMonthly {
 
 			}
 			FileWriter fw = new FileWriter(
-					//"C:\\Users\\satpal kumar\\Downloads\\BootcampProject-master\\src\\main\\resources\\json\\jsonMonthly.json");
 					"jsonMonthly.json");
 			fw.write(result);
 			System.out.println("Written json result to file");
