@@ -29,7 +29,7 @@ public class StepsWeekly {
 	// https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate
 	ArrayList<Date> dateListWeekly = new ArrayList<Date>();
 	List<Integer> stepsListWeekly = new ArrayList<Integer>();
-	String accessToken = "ya29.GltMB-EyF9g9FAMRiMKGAQjkqQ2AG8nDfrFvVm12THlpTzuuPkkJidb_BU81n_lo32zujyYnSpQbzjGxawB043xS1SCHTPJp9X9FNa_GAMguNrmaTFrFrtrABJn3";
+	String accessToken = "";
 
 	public static void main(String[] args) throws Exception {
 		StepsWeekly weeklySteps = new StepsWeekly();
