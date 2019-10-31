@@ -21,7 +21,7 @@ public class StepsToday {
 
 	ArrayList<Date> dateListDaily = new ArrayList<Date>();
 	List<Integer> stepsListDaily = new ArrayList<Integer>();
-	String accessToken = "ya29.GltMB-EyF9g9FAMRiMKGAQjkqQ2AG8nDfrFvVm12THlpTzuuPkkJidb_BU81n_lo32zujyYnSpQbzjGxawB043xS1SCHTPJp9X9FNa_GAMguNrmaTFrFrtrABJn3";
+	String accessToken = "";
 
 	public static void main(String[] args) throws Exception {
 		StepsToday steps=new StepsToday();
