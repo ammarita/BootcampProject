@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
 public class Controller {
 
     private User user;
-    private String clientID = "424969099056-3evvb3dehl985orl16u96pna1q212l9r.apps.googleusercontent.com";
-    private String clientSecret = "LoavMBL_6hY0Ajzqjt3NR3EM";
+    private String clientID = "<enter here>";
+    private String clientSecret = "<enter here>";
 
     @GetMapping("/")
 //    @ResponseBody
@@ -28,7 +28,7 @@ public class Controller {
 
     @GetMapping("/getTokens")
     public String redirect() {
-        String redirectUrl = "https://accounts.google.com/o/oauth2/v2/auth?client_id=424969099056-3evvb3dehl985orl16u96pna1q212l9r.apps.googleusercontent.com&response_type=code&scope=https://www.googleapis.com/auth/fitness.activity.read&redirect_uri=http://localhost:8080/Chart&access_type=offline";
+        String redirectUrl = "<enter here>";
         //String redirectUrl = "https://localhost:8080/DailyStepsChart";
         return "redirect:" + redirectUrl;
     }
